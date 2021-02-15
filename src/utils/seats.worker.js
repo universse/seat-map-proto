@@ -1,7 +1,7 @@
 import { restRequest } from '../../nodeUtils/restRequest'
 
 export function fetchOverviewMap(id = '1') {
-  return restRequest(`/api/getOverview`, { body: { id } })
+  return restRequest(`/api/getOverview/${id}`)
     .then(({ areas, svgProps }) => {
       const overviewHtmlArray = []
 
