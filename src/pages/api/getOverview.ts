@@ -6,6 +6,6 @@ async function sleep(ms) {
 
 export default async function getOverview(req, res) {
   await sleep(3000)
-  res.setHeader('Cache-Control', 'public, max-age=300, stale-while-revalidate')
+  res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
   res.status(200).json(require(`../../../data/overview/${req.body.id}.json`))
 }
