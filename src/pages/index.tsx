@@ -85,10 +85,11 @@ function SVG({ children, id }) {
         // TODO measure svgRef vs real size
         const seatSize = 2
 
-        maxScale.current = 100 / seatSize
-        defaultScaleChange.current = 0.5 / seatSize
-        minScale.current = 1 - defaultScaleChange.current
-        scaleThreshold.current = (maxScale.current + minScale.current) / 4
+        maxScale.current = 44 / seatSize // 22
+        defaultScaleChange.current = 1 / seatSize
+        minScale.current = 1 - defaultScaleChange.current / 10
+        console.log(defaultScaleChange.current)
+        scaleThreshold.current = (maxScale.current + minScale.current) / 3
       })
 
     return () => {
