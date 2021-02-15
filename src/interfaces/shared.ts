@@ -4,7 +4,7 @@
 //   CRITICAL = 'critical',
 // }
 
-export type Stage = 'casual' | 'intimate' | 'critical'
+export type Stage = `casual` | `intimate` | `critical`
 
 export type Quiz = {
   stage: Stage
@@ -19,12 +19,12 @@ export type Quiz = {
 export type QuizWithChoice = Quiz & { choice: number }
 
 export enum QuizVersion {
-  v1 = 'v1',
+  v1 = `v1`,
 }
 
 export type QuizSet = {
   quizSetKey: string
-  status: 'new' | 'finished'
+  status: `new` | `finished`
   name: string
   quizzes: QuizWithChoice[]
   personalInfo: {

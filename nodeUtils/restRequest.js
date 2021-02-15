@@ -5,8 +5,8 @@ function createRestRequest(fetch = global.fetch) {
     const { headers, body, ...others } = options
 
     const response = await fetch(url, {
-      method: body ? 'POST' : 'GET',
-      headers: { 'Content-Type': 'application/json', ...headers },
+      method: body ? `POST` : `GET`,
+      headers: { 'Content-Type': `application/json`, ...headers },
       ...(body && { body: JSON.stringify(body) }),
       ...others,
     })
@@ -35,6 +35,6 @@ function createRestRequest(fetch = global.fetch) {
 module.exports = {
   restRequest: createRestRequest(),
   restRequestRetry: createRestRequest(
-    require('@vercel/fetch-retry')(global.fetch)
+    require(`@vercel/fetch-retry`)(global.fetch)
   ),
 }

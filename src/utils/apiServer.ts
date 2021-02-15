@@ -12,7 +12,7 @@ async function fetchQuizSet(quizSetKey) {
   const snapshot = await firebase
     .database()
     .ref(`quizSets/${quizSetKey}`)
-    .once('value')
+    .once(`value`)
 
   return snapshot.val()
 }

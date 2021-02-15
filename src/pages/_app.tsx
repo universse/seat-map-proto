@@ -12,7 +12,7 @@ import 'styles/index.scss'
 //   log('view page', { url })
 // })
 
-if (typeof window === 'object') {
+if (typeof window === `object`) {
   // inspect({ iframe: false })
 }
 

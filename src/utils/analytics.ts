@@ -1,10 +1,10 @@
 import { restRequest } from '../../nodeUtils/restRequest'
 
-type EventTypes = 'error' | 'view page'
+type EventTypes = `error` | `view page`
 
 const events = []
 
-if (typeof window === 'object') {
+if (typeof window === `object`) {
   const session = {
     createdAt: Date.now(),
     ref: document.referrer,
@@ -14,14 +14,14 @@ if (typeof window === 'object') {
   }
 
   events.push({
-    type: 'visit',
+    type: `visit`,
     timestamp: Date.now(),
     properties: { url: window.location.href },
   })
 
-  window.addEventListener('pagehide', endSession, { once: true })
-  window.addEventListener('beforeunload', endSession, { once: true })
-  window.addEventListener('unload', endSession, { once: true })
+  window.addEventListener(`pagehide`, endSession, { once: true })
+  window.addEventListener(`beforeunload`, endSession, { once: true })
+  window.addEventListener(`unload`, endSession, { once: true })
 
   let sent = false
 
@@ -37,18 +37,18 @@ if (typeof window === 'object') {
       fetchStart,
       loadEventEnd,
       responseEnd,
-    } = window.performance.getEntriesByType('navigation')[0]
+    } = window.performance.getEntriesByType(`navigation`)[0]
 
     session.latency = responseEnd - fetchStart
     session.pageLoad = loadEventEnd - fetchStart
 
-    const body = { type: 'stream', session, events }
-    const endpoint = '/api/snap'
+    const body = { type: `stream`, session, events }
+    const endpoint = `/api/snap`
 
     if (window.navigator.sendBeacon) {
       window.navigator.sendBeacon(
         endpoint,
-        new Blob([JSON.stringify(body)], { type: 'application/json' })
+        new Blob([JSON.stringify(body)], { type: `application/json` })
       )
     } else {
       restRequest(endpoint, { body, keepalive: true })
@@ -57,7 +57,7 @@ if (typeof window === 'object') {
 }
 
 export function log(type: EventTypes, properties) {
-  process.env.NODE_ENV === 'development' && console.log({ type, properties })
+  process.env.NODE_ENV === `development` && console.log({ type, properties })
 
   events.push({
     timestamp: Date.now(),
@@ -67,5 +67,5 @@ export function log(type: EventTypes, properties) {
 }
 
 export function logError({ error, componentStack }) {
-  log('error', { error, componentStack })
+  log(`error`, { error, componentStack })
 }

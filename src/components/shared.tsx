@@ -20,8 +20,8 @@ export function TextInput(props) {
 }
 
 export function Text({
-  element: E = 'span',
-  as = 'body1',
+  element: E = `span`,
+  as = `body1`,
   className,
   ...props
 }): JSX.Element {
@@ -30,7 +30,7 @@ export function Text({
 
 export const Button = forwardRef(function (
   {
-    element: E = 'button',
+    element: E = `button`,
     // as = 'body1',
     className,
     ...props
@@ -41,7 +41,7 @@ export const Button = forwardRef(function (
     <E
       ref={ref}
       className={classNames(
-        'flex justify-center items-center text-body1 color-dark fw-700 rounded shadow01 px-24 py-16',
+        `flex justify-center items-center text-body1 color-dark fw-700 rounded shadow01 px-24 py-16`,
         // `text-${as}`,
         className
       )}

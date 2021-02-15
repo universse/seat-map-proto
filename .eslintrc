@@ -25,6 +25,7 @@
     }
   },
   "rules": {
+    "quotes": ["error", "backtick"],
     "react/jsx-sort-props": [
       "warn",
       {

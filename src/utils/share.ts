@@ -1,10 +1,10 @@
 export function copyToClipboard(str) {
-  const el = document.createElement('textarea')
+  const el = document.createElement(`textarea`)
 
   el.value = str
-  el.setAttribute('readonly', '')
-  el.style.position = 'absolute'
-  el.style.left = '-9999px'
+  el.setAttribute(`readonly`, ``)
+  el.style.position = `absolute`
+  el.style.left = `-9999px`
   document.body.appendChild(el)
 
   const selected =
@@ -13,7 +13,7 @@ export function copyToClipboard(str) {
       : false
 
   el.select()
-  document.execCommand('copy')
+  document.execCommand(`copy`)
   document.body.removeChild(el)
 
   if (selected) {
@@ -37,25 +37,25 @@ export function socialShare(data) {
         .catch((error) => {
           // Differentiate between user 'AbortError' and internal errors.
           // E.g. Internal error: could not connect to Web Share interface.
-          if (error.message.startsWith('Internal error:'))
-            error.name = 'InternalError'
+          if (error.message.startsWith(`Internal error:`))
+            error.name = `InternalError`
 
           reject(error)
         })
 
       const cancel = () =>
         setTimeout(() => {
-          window.removeEventListener('focus', cancel)
+          window.removeEventListener(`focus`, cancel)
 
-          const error = new Error('Share cancelled')
-          error.name = 'ShareTimeout'
+          const error = new Error(`Share cancelled`)
+          error.name = `ShareTimeout`
           reject(error)
         }, 100)
 
-      window.addEventListener('focus', cancel)
+      window.addEventListener(`focus`, cancel)
     } else {
-      const error = new Error('Unsupported')
-      error.name = 'Unsupported'
+      const error = new Error(`Unsupported`)
+      error.name = `Unsupported`
       reject(error)
     }
   })

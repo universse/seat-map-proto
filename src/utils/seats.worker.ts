@@ -1,7 +1,7 @@
 import { restRequest } from '../../nodeUtils/restRequest'
 
-export function fetchOverviewMap(id = '1') {
-  return restRequest(`/api/getOverview/${id}`)
+export function fetchOverviewMap(overviewId = `1`) {
+  return restRequest(`/api/getOverview/${overviewId}`)
     .then(({ areas, svgProps }) => {
       const overviewHtmlArray = []
 
@@ -13,7 +13,7 @@ export function fetchOverviewMap(id = '1') {
 
       return {
         svgProps,
-        overviewHtml: overviewHtmlArray.join(''),
+        overviewHtml: overviewHtmlArray.join(``),
       }
     })
     .catch(console.log)
@@ -26,7 +26,7 @@ const SIZE = RADIUS * 2 + STROKE_WIDTH
 const HALF_SIZE = SIZE / 2
 
 export function fetchArea(areaId) {
-  return restRequest('/api/getSeats', { body: { id: areaId } }).then(
+  return restRequest(`/api/getArea/${areaId}`).then(
     ({ originX, originY, seats }) => {
       const areaHtmls = []
 
@@ -38,7 +38,7 @@ export function fetchArea(areaId) {
         )
       }
 
-      return areaHtmls.join('')
+      return areaHtmls.join(``)
     }
   )
 }

@@ -1,5 +1,5 @@
-const fs = require('fs')
-const { promisify } = require('util')
+const fs = require(`fs`)
+const { promisify } = require(`util`)
 
 const writeFile = promisify(fs.writeFile)
 
@@ -8,8 +8,8 @@ function createRestRequest(fetch = global.fetch) {
     const { headers, body, ...others } = options
 
     const response = await fetch(url, {
-      method: body ? 'POST' : 'GET',
-      headers: { 'Content-Type': 'application/json', ...headers },
+      method: body ? `POST` : `GET`,
+      headers: { 'Content-Type': `application/json`, ...headers },
       ...(body && { body: JSON.stringify(body) }),
       ...others,
     })
@@ -20,15 +20,15 @@ function createRestRequest(fetch = global.fetch) {
   }
 }
 
-const restRequest = createRestRequest(require('node-fetch'))
+const restRequest = createRestRequest(require(`node-fetch`))
 
-const overviewId = '567:45185'
+const overviewId = `567:45185`
 
 restRequest(
   `https://api.figma.com/v1/files/MVuVGa6uvlRX1j6TdN0catmn/nodes?ids=${overviewId}&geometry=paths`,
   {
     headers: {
-      'x-figma-token': '159060-baa471f1-8047-4830-9fd1-34158e13f20a',
+      'x-figma-token': `159060-baa471f1-8047-4830-9fd1-34158e13f20a`,
     },
   }
 ).then(async (res) => {
@@ -43,7 +43,7 @@ restRequest(
     relativeTransform: [[, , x], [, , y]],
     size: { x: width, y: height },
   } of children) {
-    areas.push({ id: name.replace(':', '-'), x, y, width, height })
+    areas.push({ id: name.replace(`:`, `-`), x, y, width, height })
   }
 
   await Promise.all(
@@ -52,7 +52,7 @@ restRequest(
         `https://api.figma.com/v1/files/MVuVGa6uvlRX1j6TdN0catmn/nodes?ids=${name}&geometry=paths`,
         {
           headers: {
-            'x-figma-token': '159060-baa471f1-8047-4830-9fd1-34158e13f20a',
+            'x-figma-token': `159060-baa471f1-8047-4830-9fd1-34158e13f20a`,
           },
         }
       ).then((res) => {
@@ -70,7 +70,7 @@ restRequest(
         }
 
         return writeFile(
-          `./data/areas/${name.replace(':', '-')}.json`,
+          `./data/areas/${name.replace(`:`, `-`)}.json`,
           JSON.stringify({ originX, originY, seats })
         )
       })
@@ -78,7 +78,7 @@ restRequest(
   )
 
   fs.writeFileSync(
-    './data/overview/1.json',
+    `./data/overview/1.json`,
     JSON.stringify({
       svgProps: { width, height },
       areas,

@@ -4,13 +4,13 @@ export default function SEO() {
   const url = `https://caretoplay.sg`
 
   const tags = {
-    title: 'Care to Play?',
-    description: 'An introduction to Advance Care Planning (ACP)',
+    title: `Care to Play?`,
+    description: `An introduction to Advance Care Planning (ACP)`,
     url: `${url}/`,
     imageUrl: `${url}/assets/logo.png`,
-    imageAlt: 'Care to Play? logo',
-    type: 'website',
-    color: '#ffffff',
+    imageAlt: `Care to Play? logo`,
+    type: `website`,
+    color: `#ffffff`,
   }
 
   return (

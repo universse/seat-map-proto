@@ -9,8 +9,8 @@ import SeatsWorker from '../utils/seats.worker'
 // drag bounds rubberband
 
 const TargetTypes = {
-  AREA: 'area',
-  SEAT: 'seat',
+  AREA: `area`,
+  SEAT: `seat`,
 }
 
 export default function App() {
@@ -27,7 +27,7 @@ function SVG({ children, id }) {
   const isFastConnection = useRef(false)
 
   useEffect(() => {
-    let connectionType = ''
+    let connectionType = ``
     let saveData = false
 
     if (
@@ -35,13 +35,13 @@ function SVG({ children, id }) {
       !global.navigator ||
       !global.navigator.connection
     ) {
-      connectionType = '3g'
+      connectionType = `3g`
     } else {
-      connectionType = global.navigator.connection.effectiveType || '3g'
+      connectionType = global.navigator.connection.effectiveType || `3g`
       saveData = global.navigator.connection.saveData
     }
 
-    if (!connectionType.includes('2g') && !saveData) {
+    if (!connectionType.includes(`2g`) && !saveData) {
       isFastConnection.current = true
     }
   }, [])
@@ -69,16 +69,16 @@ function SVG({ children, id }) {
       .then(({ svgProps: { width, height }, overviewHtml }) => {
         setSvgProps({ width, height, viewBox: `0 0 ${width} ${height}` })
 
-        const overviewNode = document.getElementById('overview')
+        const overviewNode = document.getElementById(`overview`)
         overviewNode.innerHTML = overviewHtml
 
         for (const areaNode of overviewNode.children) {
           if (!areaNode.id) continue
 
           seatAreaNodes.current[areaNode.id] = document
-            .getElementById('seats')
+            .getElementById(`seats`)
             .appendChild(
-              document.createElementNS('http://www.w3.org/2000/svg', 'g')
+              document.createElementNS(`http://www.w3.org/2000/svg`, `g`)
             )
         }
 
@@ -88,7 +88,6 @@ function SVG({ children, id }) {
         maxScale.current = 44 / seatSize // 22
         defaultScaleChange.current = 1 / seatSize
         minScale.current = 1 - defaultScaleChange.current / 10
-        console.log(defaultScaleChange.current)
         scaleThreshold.current = (maxScale.current + minScale.current) / 3
       })
 
@@ -150,7 +149,7 @@ function SVG({ children, id }) {
     // }
     const [x, y] = zoomOrigin.current
 
-    for (const areaNode of document.getElementById('overview').children) {
+    for (const areaNode of document.getElementById(`overview`).children) {
       const areaId = areaNode.id
       if (!areaId || prefetchedArea.current[areaId]) continue
 
@@ -158,7 +157,7 @@ function SVG({ children, id }) {
 
       // prefetch mouseover area
       if (top < y && left < x && bottom > y && right > x) {
-        fetchArea(areaId).catch(() => console.log('OOPS 1'))
+        fetchArea(areaId).catch(() => console.log(`OOPS 1`))
         break
       }
     }
@@ -167,7 +166,7 @@ function SVG({ children, id }) {
   function handleGestureEnd() {
     const isPastThreshold = transform.current.scale >= scaleThreshold.current
 
-    for (const areaNode of document.getElementById('overview').children) {
+    for (const areaNode of document.getElementById(`overview`).children) {
       const areaId = areaNode.id
       if (!areaId) continue
 
@@ -195,7 +194,7 @@ function SVG({ children, id }) {
               renderedAreas.current.set(areaId, true)
 
               seatAreaNodes.current[areaId].innerHTML = areaHtml
-              document.getElementById(areaId).classList.toggle('hidden', true)
+              document.getElementById(areaId).classList.toggle(`hidden`, true)
             }
           })
           // TODO handle error
@@ -204,8 +203,8 @@ function SVG({ children, id }) {
         if (renderedAreas.current.get(areaId) !== false) {
           renderedAreas.current.set(areaId, false)
 
-          seatAreaNodes.current[areaId].innerHTML = ''
-          document.getElementById(areaId).classList.toggle('hidden', false)
+          seatAreaNodes.current[areaId].innerHTML = ``
+          document.getElementById(areaId).classList.toggle(`hidden`, false)
         }
       }
     }
@@ -282,7 +281,7 @@ function SVG({ children, id }) {
       // TODO probably need states
       // drag: { bounds: {}, rubberband: true },
       // pinch: { distanceBounds: { max: 1, min: 1 } },
-      wheel: { axis: 'y' },
+      wheel: { axis: `y` },
     }
   )
 
@@ -308,7 +307,7 @@ function SVG({ children, id }) {
   // }, [])
 
   function handleClick(e) {
-    const targetType = ''
+    const targetType = ``
     const id = e.target.id
 
     switch (targetType) {
@@ -351,7 +350,7 @@ function memoize(func, keyResolver, timeout = Infinity) {
   const cache = new Map()
   const inProgress = new Map()
 
-  if (isNaN(timeout)) throw new Error('Invalid timeout argument!')
+  if (isNaN(timeout)) throw new Error(`Invalid timeout argument!`)
   if (timeout < 0) timeout = 0
 
   return async function () {
@@ -386,7 +385,7 @@ function memoize(func, keyResolver, timeout = Infinity) {
       return result
     } catch (e) {
       inProgress.delete(key)
-      throw new Error('')
+      throw new Error(``)
     }
   }
 }

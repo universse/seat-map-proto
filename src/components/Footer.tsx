@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <div
         className='flex items-center justify-center background-gray900 px-16 mS:px-32'
-        style={{ height: '2.5rem' }}
+        style={{ height: `2.5rem` }}
       >
         <a
           className='flex color-brand100 text-caption'
@@ -16,7 +16,7 @@ export default function Footer() {
           <Icon fill='var(--brand100)' icon='instagram' size='medium' />
           @caretoplay.sg
         </a>
-        <div style={{ flex: '0 0 1rem' }} />
+        <div style={{ flex: `0 0 1rem` }} />
         <a
           className='flex color-brand100 text-caption'
           href='mailto:caretoplay.sg@gmail.com'

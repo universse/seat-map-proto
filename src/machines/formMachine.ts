@@ -6,8 +6,8 @@ export type FormService = ActorRefFrom<typeof formMachine>
 
 export const formMachine = createMachine(
   {
-    id: 'form',
-    initial: 'editing',
+    id: `form`,
+    initial: `editing`,
     context: {
       fieldValues: {},
       fieldErrors: {},
@@ -23,42 +23,42 @@ export const formMachine = createMachine(
             //   actions: ['validateField', 'changeValue'],
             // },
             {
-              actions: ['changeValue'],
+              actions: [`changeValue`],
             },
           ],
-          blur: { actions: ['validateField'] },
-          submit: { target: 'validating' },
+          blur: { actions: [`validateField`] },
+          submit: { target: `validating` },
         },
       },
       validating: {
-        entry: ['validateFields', 'clearSubmissionError'],
+        entry: [`validateFields`, `clearSubmissionError`],
         always: [
-          { cond: 'hasInvalidFields', target: 'editing' },
-          { target: 'submitting' },
+          { cond: `hasInvalidFields`, target: `editing` },
+          { target: `submitting` },
         ],
       },
       submitting: {
         invoke: {
-          id: 'handleSubmit',
-          src: 'handleSubmit',
-          onDone: { target: 'complete' },
+          id: `handleSubmit`,
+          src: `handleSubmit`,
+          onDone: { target: `complete` },
           onError: [
             {
-              cond: 'isSubmissionError',
-              actions: ['handleSubmissionError'],
-              target: 'editing',
+              cond: `isSubmissionError`,
+              actions: [`handleSubmissionError`],
+              target: `editing`,
             },
             {
-              actions: ['clearSubmissionError', 'setRemoteFieldErrors'],
-              target: 'editing',
+              actions: [`clearSubmissionError`, `setRemoteFieldErrors`],
+              target: `editing`,
             },
           ],
         },
       },
       complete: {
-        entry: ['handleComplete'],
+        entry: [`handleComplete`],
         always: {
-          target: 'editing',
+          target: `editing`,
         },
       },
     },
