@@ -8,7 +8,7 @@ async function sleep(ms) {
 }
 
 export default async function getArea(req, res) {
-  await sleep(3000)
+  await sleep(1000)
 
   res.setHeader(`Cache-Control`, `s-maxage=300, stale-while-revalidate`)
 

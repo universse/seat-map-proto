@@ -9,33 +9,201 @@
   width: 100vw;
 }
 
-/* @keyframes spin {
-  0% {
-    transform: rotate(0deg);
+.Concept1 {
+  .st0 {
+    fill: #ffffff;
   }
-  100% {
-    transform: rotate(360deg);
+  .st1 {
+    font-family: 'ArialMT';
   }
-} */
-
-/* #seat-wrapper .Spinner {
-  border-radius: 9999px;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  animation: spin 0.6s linear infinite;
-  border: 0.25rem solid #ddd;
-  border-top-color: #f00;
-  height: 2rem;
-  width: 2rem;
+  .st2 {
+    font-size: 14.5232px;
+  }
+  .st3 {
+    font-size: 8.9066px;
+  }
+  .st4 {
+    font-size: 4.5258px;
+  }
+  .st5 {
+    font-size: 3.8655px;
+  }
+  .st6 {
+    font-size: 3.8656px;
+  }
+  .st7 {
+    fill: none;
+    stroke: #000000;
+    stroke-miterlimit: 10;
+  }
+  .st8 {
+    font-size: 5.6145px;
+  }
+  .st9 {
+    font-size: 5.6143px;
+  }
+  .st10 {
+    fill: #ff7bac;
+    stroke: #ff7bac;
+    stroke-width: 0.335;
+    stroke-miterlimit: 10;
+  }
+  .st10-held {
+    fill: #ffffff;
+    stroke: #ff7bac;
+    stroke-width: 0.893;
+  }
+  .st10-reserved {
+    fill: url(#st10-reserved);
+  }
+  .st10-pending {
+    fill: url(#st10-pending);
+  }
+  .st10-sold {
+    fill: #cfd4da;
+  }
+  .st11 {
+    fill: #2d6005;
+    stroke: #2d6005;
+    stroke-width: 0.335;
+    stroke-miterlimit: 10;
+  }
+  .st11-held {
+    fill: #ffffff;
+    stroke: #2d6005;
+    stroke-width: 0.893;
+  }
+  .st11-reserved {
+    fill: url(#st11-reserved);
+  }
+  .st11-pending {
+    fill: url(#st11-pending);
+  }
+  .st11-sold {
+    fill: #cfd4da;
+  }
+  .st12 {
+    fill: #06215e;
+    stroke: #06215e;
+    stroke-width: 0.335;
+    stroke-miterlimit: 10;
+  }
+  .st-12-held {
+    fill: #ffffff;
+    stroke: #06215e;
+    stroke-width: 0.893;
+  }
+  .st-12-reserved {
+    fill: url(#st-12-reserved);
+  }
+  .st-12-pending {
+    fill: url(#st-12-pending);
+  }
+  .st-12-sold {
+    fill: #cfd4da;
+  }
 }
 
-#seat-wrapper.loading .Spinner {
-  opacity: 1;
-  transition: opacity 0.1s;
-} */
+.Concept2 {
+  .st0 {
+    fill: #ffffff;
+  }
+  .st1 {
+    font-family: 'ArialMT';
+  }
+  .st2 {
+    font-size: 14.5232px;
+  }
+  .st3 {
+    font-size: 8.9066px;
+  }
+  .st4 {
+    font-size: 4.5258px;
+  }
+  .st5 {
+    font-size: 3.8655px;
+  }
+  .st6 {
+    font-size: 3.8656px;
+  }
+  .st7 {
+    fill: none;
+    stroke: #000000;
+    stroke-miterlimit: 10;
+  }
+  .st8 {
+    font-size: 5.6145px;
+  }
+  .st9 {
+    font-size: 5.6143px;
+  }
+  .st10 {
+    fill: #ffffff;
+    stroke: #ff7bac;
+    stroke-width: 0.893;
+    stroke-miterlimit: 10;
+  }
+  .st10-held {
+    fill: url(#st10-held);
+    stroke-width: 0.335;
+  }
+  .st10-reserved {
+    fill: url(#st10-reserved);
+    stroke-width: 0.335;
+  }
+  .st10-pending {
+    fill: url(#st10-pending);
+    stroke-width: 0.335;
+  }
+  .st10-sold {
+    fill: #cfd4da;
+    stroke-width: 0.335;
+  }
+  .st11 {
+    fill: #ffffff;
+    stroke: #2d6005;
+    stroke-width: 0.893;
+    stroke-miterlimit: 10;
+  }
+  .st11-held {
+    fill: url(#st11-held);
+    stroke-width: 0.335;
+  }
+  .st11-reserved {
+    fill: url(#st11-reserved);
+    stroke-width: 0.335;
+  }
+  .st11-pending {
+    fill: url(#st11-pending);
+    stroke-width: 0.335;
+  }
+  .st11-sold {
+    fill: #cfd4da;
+    stroke-width: 0.335;
+  }
+  .st12 {
+    fill: #ffffff;
+    stroke: #06215e;
+    stroke-width: 0.893;
+    stroke-miterlimit: 10;
+  }
+  .st-12-held {
+    fill: url(#st11-held);
+    stroke-width: 0.335;
+  }
+  .st-12-reserved {
+    fill: url(#st-12-reserved);
+    stroke-width: 0.335;
+  }
+  .st-12-pending {
+    fill: url(#st-12-pending);
+    stroke-width: 0.335;
+  }
+  .st-12-sold {
+    fill: #cfd4da;
+    stroke-width: 0.335;
+  }
+}
 
 svg {
   height: 100%;
